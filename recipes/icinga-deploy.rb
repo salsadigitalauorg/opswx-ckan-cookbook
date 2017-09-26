@@ -43,7 +43,7 @@ bash "Deploy Icinga2" do
 		icinga2 node setup --ticket ${ticket} --endpoint ${icingamaster} --zone ${client} --master_host ${icingamaster} --trustedcert /etc/icinga2/pki/${icingamaster}.crt --accept-commands --accept-config
 		sed -i "s/${pub_ip} ${client}//g" /etc/hosts
 
-		echo 'object Zone "global-templates" { global = true }' >> /etc/icinga2/zones.conf
+		#echo 'object Zone "global-templates" { global = true }' >> /etc/icinga2/zones.conf
 		
 		sed -i 's/include_recursive "conf.d"/\/\/include_recursive "conf.d"/g' /etc/icinga2/icinga2.conf
 
